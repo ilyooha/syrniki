@@ -1,0 +1,23 @@
+.app {
+    width: 100%;
+}
+
+.app.modal-shown {
+    position: fixed;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.main {
+    margin: auto;
+}
+
+.main > * {
+    margin: 2rem 0;
+}
+
+@media(min-width: 1024px) {
+    .main{
+        width: 1024px;
+    }
+}

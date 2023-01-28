@@ -1,0 +1,16 @@
+.actions {
+    display: flex;
+}
+
+.actions > * + * {
+    margin-left: 0.5rem;
+}
+
+.remove {
+    border: none;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: none;
+    color: #d01a1a;
+}

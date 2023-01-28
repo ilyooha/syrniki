@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useContext, useState} from 'react';
+import './App.module.css';
+import Header from "./components/Layout/Header";
+import Meals from "./components/Meals/Meals";
+
+import styles from './App.module.css';
+import Cart from "./components/Cart/Cart";
+import CartContextProvider from "./store/CartContextProvider";
+import ModalContext from "./store/modal-context";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [cartIsShown, setCartIsShown] = useState(false);
+    const modalContext = useContext(ModalContext);
+
+    const showCartHandler = () => {
+        setCartIsShown(true);
+    }
+
+    const hideCartHandler = () => {
+        setCartIsShown(false);
+    }
+
+    let appClasses = [styles.app];
+    if (modalContext.modalIsShown)
+        appClasses.push(styles['modal-shown']);
+
+    return (
+        <>
+            <CartContextProvider>
+                <div className={appClasses.join(' ')}>
+                    {cartIsShown && <Cart onClose={hideCartHandler}/>}
+                    <Header onShowCart={showCartHandler}/>
+                    <main className={styles.main}>
+                        <Meals/>
+                    </main>
+                </div>
+            </CartContextProvider>
+        </>
+    );
 }
 
 export default App;

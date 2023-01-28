@@ -1,0 +1,19 @@
+.meals {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.meals li {
+    width: 100%;
+}
+
+
+@media(min-width: 768px) {
+    .meals li {
+        width: 50%;
+    }
+}

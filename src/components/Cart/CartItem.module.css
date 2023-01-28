@@ -1,0 +1,27 @@
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.title {
+    margin: 0 0 0.5rem 0;
+    flex: 1 1 100%;
+}
+
+.amount {
+    flex: 0 0 auto;
+}
+
+.actions {
+    flex: 0 0 auto;
+
+    display: flex;
+    align-items: center;
+}
+
+.total {
+    flex: 0 0 25%;
+    text-align: right;
+}
