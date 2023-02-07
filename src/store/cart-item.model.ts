@@ -1,6 +1,6 @@
-import {Meal} from "./meal.model";
+import {MenuItem} from "./menu-item.model";
 
 export interface CartItem {
-    meal: Meal;
+    menuItem: MenuItem;
     amount: number;
 }

@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import './App.module.css';
 import Header from "./components/Layout/Header";
-import Meals from "./components/Meals/Meals";
+import Menu from "./components/Menu/Menu";
 
 import styles from './App.module.css';
 import Cart from "./components/Cart/Cart";
@@ -31,7 +31,7 @@ function App() {
                     {cartIsShown && <Cart onClose={hideCartHandler}/>}
                     <Header onShowCart={showCartHandler}/>
                     <main className={styles.main}>
-                        <Meals/>
+                        <Menu/>
                     </main>
                 </div>
             </CartContextProvider>

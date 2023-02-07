@@ -18,8 +18,8 @@ const Cart = (props: CartProps) => {
     const costByMeal: { [mealId: string]: number } = {};
     let costTotal: number = 0;
     for (const i of context.items) {
-        const cost = Math.round(i.meal.unitPrice * i.amount * 100) / 100;
-        costByMeal[i.meal.id] = cost;
+        const cost = Math.round(i.menuItem.price * i.amount * 100) / 100;
+        costByMeal[i.menuItem.id] = cost;
         costTotal += cost;
     }
 
@@ -32,8 +32,9 @@ const Cart = (props: CartProps) => {
 
     const orderClickHandler = () => {
         const lines = ['Hi, I want to order these:'];
-        for(const item of context.items) {
-            lines.push(` - ${item.meal.name}: ${item.amount} ${item.meal.unit}`);
+        for (const item of context.items) {
+            const meal = item.menuItem.meal;
+            lines.push(` - ${meal.name}: ${item.amount} ${meal.unit.name}`);
         }
         const text = lines.join('\r\n');
         const url = `https://wa.me/523333616926?text=${encodeURIComponent(text)}`;
@@ -46,16 +47,16 @@ const Cart = (props: CartProps) => {
                 <h1 className={styles.heading}>Cart</h1>
                 <ul className={styles.items}>
                     {context.items.map(item => {
-                        const meal = item.meal;
+                        const menuItem = item.menuItem;
                         return (
-                            <li key={meal.id}>
+                            <li key={menuItem.id}>
                                 <CartItem item={item}
-                                          total={costByMeal[meal.id]}
+                                          total={costByMeal[menuItem.id]}
                                           onIncrement={() => {
-                                              context.addItem(meal, 1)
+                                              context.addItem(menuItem, 1)
                                           }}
                                           onDecrement={() => {
-                                              context.removeItem(meal.id, 1)
+                                              context.removeItem(menuItem.id, 1)
                                           }}
                                 />
                             </li>

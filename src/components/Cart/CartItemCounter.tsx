@@ -19,7 +19,7 @@ const CartItemCounter = (props: CartItemCounterProps) => {
     return (
         <div className={styles.counter}>
             <button onClick={decrementHandler}>-</button>
-            <span>{props.item.amount} {props.item.meal.unit}</span>
+            <span>{props.item.amount} {props.item.menuItem.meal.unit.name}</span>
             <button onClick={incrementHandler}>+</button>
         </div>
     );

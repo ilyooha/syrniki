@@ -2,7 +2,7 @@ import Card from "../UI/Card";
 import Frozen from "./Frozen";
 import Fresh from "./Fresh";
 
-const MealsSummary = () => {
+const MenuSummary = () => {
     return (
         <>
             <Card>
@@ -22,4 +22,4 @@ const MealsSummary = () => {
     );
 }
 
-export default MealsSummary;
+export default MenuSummary;

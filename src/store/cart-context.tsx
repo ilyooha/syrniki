@@ -1,10 +1,10 @@
 import * as React from "react";
 import {CartItem} from "./cart-item.model";
-import {Meal} from "./meal.model";
+import {MenuItem} from "./menu-item.model";
 
 export interface CartContextValue {
     items: CartItem[],
-    addItem: (meal: Meal, amount: number) => void;
+    addItem: (menuItem: MenuItem, amount: number) => void;
     removeItem: (id: string, amount: number) => void;
 }
 

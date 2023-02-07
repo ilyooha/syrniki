@@ -1,22 +1,22 @@
 import Button from "../../UI/Button";
 import CartContext from "../../../store/cart-context";
 import {useContext} from "react";
-import {Meal} from "../../../store/meal.model";
-import styles from './MealItemForm.module.css';
+import styles from './MenuItemForm.module.css';
 import CartItemCounter from "../../Cart/CartItemCounter";
+import {MenuItem} from "../../../store/menu-item.model";
 
-export interface MealItemFormProps {
-    meal: Meal;
+export interface MenuItemFormProps {
+    menuItem: MenuItem;
 }
 
-const MealItemForm = (props: MealItemFormProps) => {
+const MenuItemForm = (props: MenuItemFormProps) => {
     const cartContext = useContext(CartContext);
-    const meal = props.meal;
+    const menuItem = props.menuItem;
     const cartItem = cartContext.items
-        .find(i => i.meal.id === meal.id);
+        .find(i => i.menuItem.id === menuItem.id);
 
     const addHandler = () => {
-        cartContext.addItem(meal, 1);
+        cartContext.addItem(menuItem, 1);
     }
 
     if (cartItem == null) {
@@ -26,15 +26,15 @@ const MealItemForm = (props: MealItemFormProps) => {
     }
 
     const decrementHandler = () => {
-        cartContext.removeItem(meal.id, 1);
+        cartContext.removeItem(menuItem.id, 1);
     }
 
     const incrementHandler = () => {
-        cartContext.addItem(meal, 1);
+        cartContext.addItem(menuItem, 1);
     }
 
     const removeHandler = () => {
-        cartContext.removeItem(meal.id, cartItem.amount);
+        cartContext.removeItem(menuItem.id, cartItem.amount);
     }
 
     return (
@@ -47,4 +47,4 @@ const MealItemForm = (props: MealItemFormProps) => {
     );
 }
 
-export default MealItemForm;
+export default MenuItemForm;
