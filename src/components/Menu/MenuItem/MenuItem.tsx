@@ -17,7 +17,8 @@ const MenuItem = (props: MenuItemProps) => {
                 <div className={styles.column}>
                     <h3 className={styles.title}>{meal.name}</h3>
                     <div className={styles.characteristics}>
-                        <Money value={props.menuItem.price}/> / {meal.unit.name}
+                        <Money
+                            value={props.menuItem.price}/> / {meal.unit.name} {meal.unit.name === 'pz' && `(${meal.unit.grams} g)`}
                         {meal.isFrozen && <Frozen/>}
                         {meal.isFresh && <Fresh/>}
                     </div>
