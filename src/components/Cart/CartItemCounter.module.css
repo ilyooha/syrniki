@@ -13,6 +13,7 @@
 
 .counter button {
     background-color: #FBE6A2;
+    color: black;
     flex: 0 0 auto;
     font-weight: bold;
     border: none;
