@@ -26,7 +26,7 @@ const MenuItem = (props: MenuItemProps) => {
                         <MenuItemForm menuItem={props.menuItem}/>
                     </div>
                 </div>
-                <div className={styles.column + ' ' + styles.image}>
+                <div className={styles.column + ' ' + styles['image-container']}>
                     {meal.image_id != null &&
                       <img alt='meal' src={`${process.env.PUBLIC_URL}/images/${meal.image_id}`}/>}
                 </div>

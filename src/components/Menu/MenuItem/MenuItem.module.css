@@ -2,6 +2,8 @@
     display: flex;
     align-items: stretch;
     justify-content: space-between;
+
+    height: 12rem;
 }
 
 .column {
@@ -9,25 +11,24 @@
 }
 
 .column:first-child {
-    flex: 1 1 auto;
+    padding: 1rem 1.25rem;
+
+    flex: 0 0 40%;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.image {
-    width: 8.25rem;
-    height: 8.25rem;
-    border-radius: 50%;
+.image-container {
     overflow: hidden;
-    background: #000000;
+    /*border-radius: 50%;*/
+    background: none;
 }
 
-.image img {
-    width: 140px;
-    margin-top: -4px;
-    margin-left: -4px;
+.image-container img {
+    width: 24rem;
+    margin-top: -6rem;
     border-radius: 50%;
 }
 
