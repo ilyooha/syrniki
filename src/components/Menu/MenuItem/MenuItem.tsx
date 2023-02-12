@@ -17,10 +17,10 @@ const MenuItem = (props: MenuItemProps) => {
                 <div className={styles.column}>
                     <h3 className={styles.title}>{meal.name}</h3>
                     <div className={styles.characteristics}>
-                        <Money
-                            value={props.menuItem.price}/> / {meal.unit.name} {meal.unit.name === 'pz' && `(${meal.unit.grams} g)`}
-                        {meal.isFrozen && <Frozen/>}
-                        {meal.isFresh && <Fresh/>}
+                        <span><Money
+                            value={props.menuItem.price}/> / {meal.unit.name} {meal.unit.name === 'pz' && `(${meal.unit.grams} g)`}</span>
+                        {meal.isFrozen && <span><Frozen/></span>}
+                        {meal.isFresh && <span><Fresh/></span>}
                     </div>
                     <div className={styles.actions}>
                         <MenuItemForm menuItem={props.menuItem}/>

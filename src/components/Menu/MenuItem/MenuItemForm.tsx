@@ -1,4 +1,3 @@
-import Button from "../../UI/Button";
 import CartContext from "../../../store/cart-context";
 import {useContext} from "react";
 import styles from './MenuItemForm.module.css';
@@ -15,16 +14,6 @@ const MenuItemForm = (props: MenuItemFormProps) => {
     const cartItem = cartContext.items
         .find(i => i.menuItem.id === menuItem.id);
 
-    const addHandler = () => {
-        cartContext.addItem(menuItem, 1);
-    }
-
-    if (cartItem == null) {
-        return (
-            <Button onClick={addHandler}>Add</Button>
-        )
-    }
-
     const decrementHandler = () => {
         cartContext.removeItem(menuItem.id, 1);
     }
@@ -33,16 +22,11 @@ const MenuItemForm = (props: MenuItemFormProps) => {
         cartContext.addItem(menuItem, 1);
     }
 
-    const removeHandler = () => {
-        cartContext.removeItem(menuItem.id, cartItem.amount);
-    }
-
+    const amount = cartItem == null ? 0 : cartItem.amount;
     return (
         <div className={styles.actions}>
-            <CartItemCounter item={cartItem} onIncrement={incrementHandler} onDecrement={decrementHandler}/>
-            <button className={styles.remove} onClick={removeHandler}>
-                <i className="fa-solid fa-trash-can"></i>
-            </button>
+            <CartItemCounter menuItem={menuItem} amount={amount || 0} onIncrement={incrementHandler}
+                             onDecrement={decrementHandler}/>
         </div>
     );
 }

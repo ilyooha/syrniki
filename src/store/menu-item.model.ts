@@ -4,4 +4,5 @@ export interface MenuItem {
     id: string;
     meal: Meal;
     price: number;
+    available?: boolean;
 }

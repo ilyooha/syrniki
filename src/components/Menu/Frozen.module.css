@@ -1,4 +1,8 @@
 
-.frozen {
+.icon {
     color: #59a3ff;
+}
+
+.caption {
+    margin-left: 0.5rem;
 }

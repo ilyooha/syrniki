@@ -18,6 +18,7 @@ const menuItems: model.MenuItem[] = [
             image_id: 'syrniki_malina.jpeg',
         },
         price: 30,
+        available: true,
     },
     {
         id: 'm2',
@@ -26,13 +27,14 @@ const menuItems: model.MenuItem[] = [
             name: 'Pelmeni, Beef & Pork',
             description: `A delicious dinner has never been closer: put it into boiling water for 5 min, then serve it with your fav sauce. Trust me, you will never get enough of these`,
             unit: {
-                name: 'kg',
-                grams: 1000
+                name: '500 g',
+                grams: 500
             },
             isFrozen: true,
             image_id: 'pelmeni.jpeg',
         },
-        price: 350,
+        price: 350 / 2,
+        available: true,
     },
     {
         id: 'm3',
@@ -41,13 +43,14 @@ const menuItems: model.MenuItem[] = [
             name: 'Pelmeni, Chicken',
             description: `A delicious dinner has never been closer: put it into boiling water for 5 min, then serve it with your fav sauce. Trust me, you will never get enough of these`,
             unit: {
-                name: 'kg',
-                grams: 1000
+                name: '500 g',
+                grams: 500
             },
             isFrozen: true,
             image_id: 'pelmeni.jpeg',
         },
-        price: 300,
+        price: 300 / 2,
+        available: true,
     },
     {
         id: 'm5',
@@ -63,6 +66,7 @@ const menuItems: model.MenuItem[] = [
             image_id: 'borsch.jpeg',
         },
         price: 215,
+        available: false,
     },
     {
         id: 'm6',
@@ -78,6 +82,7 @@ const menuItems: model.MenuItem[] = [
             image_id: 'golubzi.jpeg',
         },
         price: 30,
+        available: false,
     },
     {
         id: 'm7',
@@ -92,6 +97,7 @@ const menuItems: model.MenuItem[] = [
             isFresh: true,
         },
         price: 215,
+        available: true,
     },
     {
         id: 'm8',
@@ -127,15 +133,17 @@ const MenuItems = () => {
     return (
         <>
             <ul className={styles.meals}>
-                {menuItems.map(m => {
-                    return (
-                        <li key={m.id}>
-                            <Card>
-                                <MenuItem menuItem={m}/>
-                            </Card>
-                        </li>
-                    )
-                })}
+                {menuItems
+                    .filter(m => m.available)
+                    .map(m => {
+                        return (
+                            <li key={m.id}>
+                                <Card>
+                                    <MenuItem menuItem={m}/>
+                                </Card>
+                            </li>
+                        )
+                    })}
             </ul>
         </>
     );

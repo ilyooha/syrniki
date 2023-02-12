@@ -41,10 +41,14 @@
 
 .characteristics {
     flex: 1 1 auto;
+    font-size: 0.75rem;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .characteristics > * + * {
-    margin-left: 0.5rem;
+    margin-top: 0.5rem;
 }
 
 .actions {
